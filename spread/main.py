@@ -1,20 +1,18 @@
-import pandas as pd
+import pandas
 import plotly.express as px
 from investiny import historical_data
 
-# source: https://tvc4.investing.com/
-PETR3 = 18749
-PETR4 = 18750
-BBDC3 = 18605
-BBDC4 = 18606
-ITSA3 = 18705
-ITSA4 = 18706
+from utils import get_stock_id
 
-FROM_DATE = "01/01/2000"
-TO_DATE = "01/01/2022"
+FROM_DATE = "01/01/2000"  # MM/DD/YYYY
+TO_DATE = "01/01/2022"  # MM/DD/YYYY
 
-petr3 = historical_data(investing_id=PETR3, from_date=FROM_DATE, to_date=TO_DATE)
-petr4 = historical_data(investing_id=PETR4, from_date=FROM_DATE, to_date=TO_DATE)
+petr3 = historical_data(
+    investing_id=get_stock_id("PETR3"), from_date=FROM_DATE, to_date=TO_DATE
+)
+petr4 = historical_data(
+    investing_id=get_stock_id("PETR4"), from_date=FROM_DATE, to_date=TO_DATE
+)
 
 records = [
     {
@@ -26,7 +24,7 @@ records = [
     for i in range(len(petr3["close"]))
 ]
 
-long_short = pd.DataFrame.from_records(records)
+long_short = pandas.DataFrame.from_records(records)
 long_short.set_index("index", inplace=True)
 
 fig = px.line(x=long_short.index, y=long_short.ratio)
