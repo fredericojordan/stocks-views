@@ -1,4 +1,4 @@
-# stocks-view: Stock Data Visualizations
+# stocks-views: Stock Data Visualizations
 
 - [Stock Correlation](/corr)
 - [Spread Analysis](/spread)
