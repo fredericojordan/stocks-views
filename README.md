@@ -5,7 +5,7 @@
 
 ## Instructions
 
-Scripts are separated by directory. All of them can be run by running the following:
+Scripts are separated by directory. Any of them can be run by executing the following on your terminal of choice:
 
 ```shell
 pip install -r requirements.txt
